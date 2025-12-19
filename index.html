@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RKM Drone Services LLC | A Veteran's Eye in the Sky | Oklahoma City</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #3a3a3a 0%, #5a5a5a 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff8533;
+        }
+        
+        .tagline {
+            font-size: 0.8rem;
+            color: #fff;
+            font-style: italic;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #ff8533;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(58, 58, 58, 0.85), rgba(58, 58, 58, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%233a3a3a" width="1200" height="600"/><path fill="%235a5a5a" d="M0 300L50 320L100 310L150 330L200 315L250 335L300 325L350 340L400 330L450 345L500 335L550 350L600 340L650 355L700 345L750 360L800 350L850 365L900 355L950 370L1000 360L1050 375L1100 365L1150 380L1200 370V600H0Z"/></svg>') center/cover;
+            padding: 180px 2rem 120px;
+            text-align: center;
+            color: white;
+            margin-top: 70px;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 133, 51, 0.15), transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            color: #fff;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .hero-tagline {
+            font-size: 1.8rem;
+            color: #ff8533;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff8533;
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 133, 51, 0.4);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 133, 51, 0.5);
+            background: #ff9933;
+        }
+        
+        .veteran-badge {
+            display: inline-block;
+            background: rgba(255, 133, 51, 0.2);
+            border: 2px solid #ff8533;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            margin-top: 1rem;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            color: #fff;
+        }
+        
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #3a3a3a;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #ff8533;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #ff8533;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(255, 133, 51, 0.2);
+        }
+        
+        .service-card h3 {
+            color: #3a3a3a;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            margin-top: 1rem;
+            font-weight: bold;
+            color: #ff8533;
+            font-size: 1.1rem;
+        }
+        
+        .why-choose {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-3px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #ff8533;
+        }
+        
+        .feature h3 {
+            color: #3a3a3a;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, #3a3a3a 0%, #5a5a5a 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact-section h2 {
+            color: white;
+        }
+        
+        .contact-section h2::after {
+            background: #ff8533;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .contact-item a:hover {
+            color: #ff8533;
+        }
+        
+        footer {
+            background: #2a2a2a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .certifications {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .cert-badge {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #3a3a3a;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #ff8533;
+        }
+        
+        .tech-specs {
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 2px solid #ff8533;
+        }
+        
+        .tech-specs h3 {
+            color: #3a3a3a;
+            margin-bottom: 1rem;
+        }
+        
+        .spec-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #3a3a3a;
+        }
+        
+        .spec-item::before {
+            content: '✓';
+            color: #ff8533;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .hero-tagline {
+                font-size: 1.3rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-container">
+                <div>
+                    <div class="logo-text">RKM DRONE SERVICES</div>
+                    <div class="tagline">A Veteran's Eye in the Sky</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Professional Drone Services for Oklahoma City</h1>
+            <p>Aerial Photography | Site Documentation | Event Coverage</p>
+            <div class="hero-tagline">A Veteran's Eye in the Sky</div>
+            <div class="veteran-badge">🇺🇸 Veteran-Owned & Operated</div>
+            <br><br>
+            <a href="#contact" class="cta-button">Get a Free Quote</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📸</div>
+                <h3>Aerial Photography & Video</h3>
+                <p>Professional 4K aerial photography and video for real estate listings, commercial properties, and marketing content. Stunning 20MP images that make your property stand out and sell faster.</p>
+                <div class="price">Starting at $250</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🗺️</div>
+                <h3>Aerial Site Documentation</h3>
+                <p>High-resolution aerial imagery for site assessment and visual documentation. Perfect for small to medium construction projects, land evaluation, and visual progress records. Ideal for sites up to 50 acres.</p>
+                <div class="price">Starting at $400</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Construction Progress Tracking</h3>
+                <p>Regular aerial photography and video to document construction progress. Share stunning updates with stakeholders, create time-lapse videos, and maintain visual records of your project milestones.</p>
+                <div class="price">Starting at $350/month</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Roof & Property Inspections</h3>
+                <p>Safe, detailed visual inspections of roofs and properties without ladders or scaffolding. High-resolution imagery perfect for insurance documentation, maintenance assessment, and condition reports.</p>
+                <div class="price">Starting at $275</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">⚽</div>
+                <h3>Sports & Events</h3>
+                <p>Dynamic aerial action photography and highlight videos for youth sports, high school athletics, tournaments, and special events. Unique perspectives that capture unforgettable moments from angles impossible to get from the ground.</p>
+                <div class="price">Custom Packages Available</div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Commercial Video Production</h3>
+                <p>Cinematic aerial videography for business marketing, promotional materials, and corporate communications. Professional 4K video quality with optional editing and color grading to make your brand shine.</p>
+                <div class="price">Starting at $450</div>
+            </div>
+        </div>
+        
+        <div class="tech-specs">
+            <h3>📱 Professional Equipment & Capabilities</h3>
+            <p>We use the DJI Mavic 4 Pro - professional-grade technology delivering exceptional results:</p>
+            <div class="spec-list">
+                <div class="spec-item">20MP High-Resolution Photos</div>
+                <div class="spec-item">4K Video at 60fps</div>
+                <div class="spec-item">Omnidirectional Obstacle Avoidance</div>
+                <div class="spec-item">45-Minute Flight Time</div>
+                <div class="spec-item">ActiveTrack 5.0 for Sports</div>
+                <div class="spec-item">Professional Color Profiles</div>
+                <div class="spec-item">Hyperlapse & Time-Lapse</div>
+                <div class="spec-item">Panorama Modes (180° & 360°)</div>
+            </div>
+            <p style="margin-top: 1.5rem;"><strong>What We Specialize In:</strong></p>
+            <p style="margin-top: 0.5rem;">Our services focus on high-quality visual documentation and photography. For projects requiring precision surveying, engineering-grade topographic maps, or large-scale site surveys with GPS ground control points, we're happy to recommend specialized surveying partners who have the equipment for those specific needs.</p>
+        </div>
+    </section>
+
+    <section id="why-us" class="why-choose">
+        <h2>Why Choose RKM Drone Services</h2>
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">🇺🇸</div>
+                <h3>Veteran-Owned</h3>
+                <p>Military precision and reliability in every mission</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">✅</div>
+                <h3>FAA Certified</h3>
+                <p>Part 107 licensed and fully compliant</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3>$1M Insured</h3>
+                <p>Full liability coverage for your peace of mind</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">⚡</div>
+                <h3>Fast Turnaround</h3>
+                <p>Most projects delivered within 48-72 hours</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🎯</div>
+                <h3>Local Expert</h3>
+                <p>Based in Oklahoma City, serving the metro area</p>
+            </div>
+            
+            <div class="feature">
+                <div class="feature-icon">🏛️</div>
+                <h3>Federal Ready</h3>
+                <p>SAM.gov registered with CAGE code and UEI</p>
+            </div>
+        </div>
+        
+        <div class="certifications">
+            <div class="cert-badge">FAA Part 107 Certified</div>
+            <div class="cert-badge">$1 Million Liability Insurance</div>
+            <div class="cert-badge">SAM.gov Registered</div>
+            <div class="cert-badge">Veteran-Owned Small Business</div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Ready to Get Started?</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Contact us today for a free consultation and quote</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="feature-icon">📞</div>
+                <a href="tel:4054122820">(405) 412-2820</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="feature-icon">📧</div>
+                <a href="mailto:Contact@rkmdroneservices.com">Contact@rkmdroneservices.com</a>
+            </div>
+            
+            <div class="contact-item">
+                <div class="feature-icon">📍</div>
+                <p>Serving Oklahoma City Metro</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <a href="tel:4054122820" class="cta-button">Call Now for Free Quote</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 RKM Drone Services LLC | A Veteran's Eye in the Sky | Oklahoma City, OK</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem;">Licensed & Insured | FAA Part 107 Certified | CAGE Code: 170S4 | UEI: CGS7HZK3S3P9</p>
+    </footer>
+</body>
+</html>
